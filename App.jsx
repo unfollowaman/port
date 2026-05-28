@@ -9,11 +9,13 @@ console.error = (...args) => {
 };
 
 function App() {
-  const { HeroSection, CapabilitiesSection } = window;
+  const { HeroSection, CapabilitiesSection, PortfolioSection, FooterSection } = window;
   return (
     <main>
       <HeroSection />
       <CapabilitiesSection />
+      <PortfolioSection />
+      <FooterSection />
     </main>
   );
 }

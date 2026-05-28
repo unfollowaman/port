@@ -39,49 +39,21 @@ function StatCard({ icon: Icon, value, label }) {
   );
 }
 
-// ── Partners Row ─────────────────────────────────────────────────────────────
-function Partners() {
-  const partnerNames = ["Aeon", "Vela", "Apex", "Orbit", "Zeno"];
-
-  return (
-    <motion.div
-      {...fadeUp(1.4)}
-      className="flex flex-col items-center gap-4 pb-8"
-    >
-      {/* Kicker chip */}
-      <div className="liquid-glass rounded-full px-3.5 py-1">
-        <span className="text-xs font-medium text-white font-body">
-          Collaborating with top aerospace pioneers globally
-        </span>
-      </div>
-
-      {/* Partner names */}
-      <div className="flex items-center gap-12 md:gap-16 flex-wrap justify-center">
-        {partnerNames.map((name) => (
-          <span
-            key={name}
-            style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontStyle: "italic",
-              fontSize: "clamp(1.5rem, 3vw, 1.875rem)",
-              color: "#fff",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            {name}
-          </span>
-        ))}
-      </div>
-    </motion.div>
-  );
-}
 
 // ── Hero Section ─────────────────────────────────────────────────────────────
 function HeroSection() {
-  const { FadingVideo, BlurText, Navbar, ArrowUpRight, Play, ClockIcon, GlobeIcon } = window;
+  const { FadingVideo, BlurText, Navbar, ArrowUpRight, Play, ImageIcon, GlobeIcon } = window;
+
+  // Custom Users icon component
+  const UsersIcon = () => (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7 text-white">
+      <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+    </svg>
+  );
 
   return (
     <section
+      id="about"
       className="relative w-full overflow-hidden bg-black"
       style={{ minHeight: "100vh" }}
     >
@@ -105,13 +77,13 @@ function HeroSection() {
               New
             </span>
             <span className="text-sm text-white/90 font-body pr-3">
-              Maiden Crewed Voyage to Mars Arrives 2026
+              Thumbnail Designer & AI Consultant
             </span>
           </motion.div>
 
           {/* Headline */}
           <BlurText
-            text="Venture Past Our Sky Across the Universe"
+            text="Make Your Content Impossible to Ignore"
             className="text-6xl md:text-7xl font-heading text-white max-w-2xl text-center"
             style={{
               fontStyle: "italic",
@@ -125,7 +97,7 @@ function HeroSection() {
             {...fadeUp(0.8)}
             className="mt-4 text-sm md:text-base text-white max-w-2xl font-body font-light leading-tight text-center"
           >
-            Discover the universe in ways once unimaginable. Our pioneering vessels and breakthrough engineering bring deep-space exploration within reach—secure and extraordinary.
+            I design thumbnails that stop the scroll, and help creators & educators harness AI to grow faster.
           </motion.p>
 
           {/* CTAs */}
@@ -133,21 +105,23 @@ function HeroSection() {
             {...fadeUp(1.1)}
             className="flex items-center gap-6 mt-6"
           >
-            <button
+            <a
+              href="#portfolio"
               className="liquid-glass-strong flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white font-body"
-              style={{ cursor: "pointer", border: "none" }}
+              style={{ cursor: "pointer", border: "none", textDecoration: "none" }}
             >
-              Start Your Voyage
+              See My Work
               <ArrowUpRight className="h-5 w-5" />
-            </button>
+            </a>
 
-            <button
+            <a
+              href="mailto:unfollowaman@gmail.com"
               className="flex items-center gap-2 text-sm font-medium text-white font-body bg-transparent border-none"
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", textDecoration: "none" }}
             >
-              View Liftoff
+              Work With Me
               <Play className="h-4 w-4" />
-            </button>
+            </a>
           </motion.div>
 
           {/* Stats Row */}
@@ -156,20 +130,17 @@ function HeroSection() {
             className="flex items-stretch gap-4 mt-8"
           >
             <StatCard
-              icon={ClockIcon}
-              value="34.5 Min"
-              label="Average Videos Watch Time"
+              icon={ImageIcon}
+              value="100+"
+              label="Thumbnails Created"
             />
             <StatCard
-              icon={GlobeIcon}
-              value="2.8B+"
-              label="Users Across the Globe"
+              icon={UsersIcon}
+              value="20+"
+              label="Creators Served"
             />
           </motion.div>
         </div>
-
-        {/* Partners — pinned to bottom */}
-        <Partners />
       </div>
     </section>
   );
