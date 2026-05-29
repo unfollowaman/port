@@ -10,34 +10,15 @@ function CapabilityCard({ icon: Icon, tags, title, body }) {
       className="liquid-glass flex flex-col p-6"
       style={{ borderRadius: "1.25rem", minHeight: 360 }}
     >
-      {/* Top row: icon + tags */}
-      <div className="flex items-start justify-between gap-4">
-        {/* Icon wrapper */}
-        <div
-          className="liquid-glass flex items-center justify-center flex-shrink-0"
-          style={{ width: 44, height: 44, borderRadius: "0.75rem" }}
-        >
-          <Icon />
-        </div>
-
-        {/* Tag pills */}
-        <div className="flex flex-wrap justify-end gap-1.5" style={{ maxWidth: "70%" }}>
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="liquid-glass rounded-full px-3 py-1 font-body whitespace-nowrap"
-              style={{ fontSize: 11, color: "rgba(255,255,255,0.9)" }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+      {/* Icon wrapper */}
+      <div
+        className="liquid-glass flex items-center justify-center flex-shrink-0"
+        style={{ width: 44, height: 44, borderRadius: "0.75rem" }}
+      >
+        <Icon />
       </div>
 
-      {/* Spacer */}
-      <div className="flex-1" />
-
-      {/* Bottom: title + body */}
+      {/* Title + body + tags */}
       <div className="mt-6">
         <h3
           style={{
@@ -58,6 +39,19 @@ function CapabilityCard({ icon: Icon, tags, title, body }) {
         >
           {body}
         </p>
+
+        {/* Tag pills */}
+        <div className="flex flex-wrap justify-end gap-1.5 mt-5" style={{ maxWidth: "70%" }}>
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="liquid-glass rounded-full px-3 py-1 font-body whitespace-nowrap"
+              style={{ fontSize: 11, color: "rgba(255,255,255,0.9)" }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -106,7 +100,7 @@ function CapabilitiesSection() {
         style={{ minHeight: "100vh" }}
       >
         {/* Header */}
-        <div className="mb-auto">
+        <div>
           <p className="text-sm font-body mb-6" style={{ color: "rgba(255,255,255,0.8)" }}>
             // What I Do
           </p>
@@ -127,7 +121,7 @@ function CapabilitiesSection() {
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           {cards.map((card) => (
             <CapabilityCard key={card.title} {...card} />
           ))}

@@ -16,8 +16,8 @@ const fadeUp = (delay = 0) => ({
 function StatCard({ icon: Icon, value, label }) {
   return (
     <div
-      className="liquid-glass flex flex-col justify-between p-5"
-      style={{ width: 220, borderRadius: "1.25rem", minHeight: 120 }}
+      className="liquid-glass flex w-full flex-col justify-between p-5 sm:w-[220px]"
+      style={{ borderRadius: "1.25rem", minHeight: 120 }}
     >
       <Icon />
       <div className="mt-4">
@@ -127,7 +127,7 @@ function HeroSection() {
           {/* Stats Row */}
           <motion.div
             {...fadeUp(1.3)}
-            className="flex items-stretch gap-4 mt-8"
+            className="flex w-full max-w-[220px] flex-col items-stretch gap-4 mt-8 sm:w-auto sm:max-w-none sm:flex-row"
           >
             <StatCard
               icon={ImageIcon}
