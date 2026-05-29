@@ -4,7 +4,12 @@
 function Navbar() {
   const { ArrowUpRight } = window;
 
-  const links = ["Home", "Voyages", "Worlds", "Innovation", "Plan Launch"];
+  const links = [
+    { label: "About", href: "#about" },
+    { label: "My Work", href: "#portfolio" },
+    { label: "Services", href: "#services" },
+    { label: "Contact", href: "#contact" }
+  ];
 
   return (
     <nav className="fixed top-4 left-0 right-0 z-50 flex items-center justify-between px-8 lg:px-16">
@@ -22,7 +27,7 @@ function Navbar() {
             lineHeight: 1,
           }}
         >
-          a
+          AM
         </span>
       </div>
 
@@ -30,23 +35,24 @@ function Navbar() {
       <div className="hidden md:flex items-center liquid-glass rounded-full px-1.5 py-1.5 gap-1">
         {links.map((link) => (
           <a
-            key={link}
-            href="#"
+            key={link.label}
+            href={link.href}
             className="px-3 py-2 text-sm font-medium text-white/90 font-body whitespace-nowrap hover:text-white transition-colors"
             style={{ textDecoration: "none" }}
           >
-            {link}
+            {link.label}
           </a>
         ))}
 
         {/* CTA pill */}
-        <button
+        <a
+          href="mailto:unfollowaman@gmail.com"
           className="flex items-center gap-1.5 bg-white text-black rounded-full px-4 py-2 text-sm font-medium font-body whitespace-nowrap ml-1 hover:bg-white/90 transition-colors"
-          style={{ cursor: "pointer", border: "none" }}
+          style={{ cursor: "pointer", border: "none", textDecoration: "none" }}
         >
-          Claim a Spot
+          Work With Me
           <ArrowUpRight className="h-4 w-4" />
-        </button>
+        </a>
       </div>
 
       {/* Spacer — keeps logo centred on desktop */}

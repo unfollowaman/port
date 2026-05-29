@@ -70,26 +70,27 @@ function CapabilitiesSection() {
   const cards = [
     {
       icon: ImageIcon,
-      tags: ["Natural Context", "Photo Realism", "Infinite Settings", "Eco-Vibe"],
-      title: "AI Scenery",
-      body: "AI analyzes your product to create indistinguishable natural environments — from Icelandic cliffs to misty forests.",
-    },
-    {
-      icon: MovieIcon,
-      tags: ["Scale Fast", "Visual Consistency", "Time Saver", "Ready to Post"],
-      title: "Batch Production",
-      body: "Style your entire product line in minutes. Create a unified visual identity for catalogues and social media without weeks of retouching.",
+      tags: ["Eye-catching", "Click-worthy", "On-brand", "Fast Turnaround"],
+      title: "Thumbnail Design",
+      body: "I create thumbnails that speak before the video does. Each design is built to maximize CTR and match your channel's identity.",
     },
     {
       icon: LightbulbIcon,
-      tags: ["Ray Tracing", "Physical Shadows", "Studio Quality", "Sunlight Sync"],
-      title: "Smart Lighting",
-      body: "Automatic lighting and material adjustment. Achieve flawless integration with realistic shadows and sunlight.",
+      tags: ["Workflows", "Automation", "Tools", "Strategy"],
+      title: "AI Consulting",
+      body: "I help educators, coaches, and YouTubers integrate AI into their content pipeline — saving hours every week without losing their voice.",
+    },
+    {
+      icon: MovieIcon,
+      tags: ["Reels", "YouTube", "Shorts", "Engaging Cuts"],
+      title: "Video Editing",
+      body: "Clean, fast-paced edits that keep viewers watching. Optimized for both long-form YouTube and short-form social content.",
     },
   ];
 
   return (
     <section
+      id="services"
       className="relative w-full bg-black overflow-hidden"
       style={{ minHeight: "100vh" }}
     >
@@ -107,7 +108,7 @@ function CapabilitiesSection() {
         {/* Header */}
         <div className="mb-auto">
           <p className="text-sm font-body mb-6" style={{ color: "rgba(255,255,255,0.8)" }}>
-            // Capabilities
+            // What I Do
           </p>
 
           <h2
@@ -121,7 +122,7 @@ function CapabilitiesSection() {
               margin: 0,
             }}
           >
-            Production<br />evolved
+            Skills evolved for<br />the creator economy
           </h2>
         </div>
 
