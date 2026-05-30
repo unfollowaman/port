@@ -1,11 +1,27 @@
 // PortfolioSection.jsx
 // Displays a grid of 6 thumbnail cards with hover effects
 
-function PortfolioCard({ label }) {
+function PortfolioCard({ label, fileName }) {
+  const [imageLoaded, setImageLoaded] = React.useState(true);
+  const imageSrc = `assets/${fileName}`;
+
   return (
     <div className="relative group rounded-xl overflow-hidden liquid-glass" style={{ aspectRatio: '16/9' }}>
-      {/* Placeholder image background */}
-      <div className="absolute inset-0 bg-white/5 transition-transform duration-500 group-hover:scale-105" />
+      {/* Thumbnail image background. Put your real image in /assets using the fileName below. */}
+      {imageLoaded ? (
+        <img
+          src={imageSrc}
+          alt={`${label} thumbnail`}
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+          onError={() => setImageLoaded(false)}
+        />
+      ) : (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/5 p-4 text-center transition-transform duration-500 group-hover:scale-105">
+          <span className="font-body text-xs uppercase tracking-[0.2em] text-white/45">Add thumbnail</span>
+          <span className="mt-2 break-all font-body text-sm text-white/75">{imageSrc}</span>
+        </div>
+      )}
 
       {/* Hover overlay with label */}
       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -19,12 +35,30 @@ function PortfolioCard({ label }) {
 
 function PortfolioSection() {
   const portfolioItems = [
-    "Agriculture — Class 10th Geography",
-    "Why Putin Wants Ukraine",
-    "Topper's Secret Time-Table",
-    "Quadratic Equations — Class 10th",
-    "Scientific Temperament",
-    "Mind Goes Blank While Speaking English?"
+    {
+      label: "Agriculture — Class 10th Geography",
+      fileName: "01-agriculture-class-10-geography.jpg",
+    },
+    {
+      label: "Why Putin Wants Ukraine",
+      fileName: "02-why-putin-wants-ukraine.jpg",
+    },
+    {
+      label: "Topper's Secret Time-Table",
+      fileName: "03-toppers-secret-time-table.jpg",
+    },
+    {
+      label: "Quadratic Equations — Class 10th",
+      fileName: "04-quadratic-equations-class-10.jpg",
+    },
+    {
+      label: "Scientific Temperament",
+      fileName: "05-scientific-temperament.jpg",
+    },
+    {
+      label: "Mind Goes Blank While Speaking English?",
+      fileName: "06-mind-goes-blank-speaking-english.jpg",
+    },
   ];
 
   return (
@@ -53,8 +87,8 @@ function PortfolioSection() {
 
         {/* Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {portfolioItems.map((item, index) => (
-            <PortfolioCard key={index} label={item} />
+          {portfolioItems.map((item) => (
+            <PortfolioCard key={item.fileName} label={item.label} fileName={item.fileName} />
           ))}
         </div>
       </div>
